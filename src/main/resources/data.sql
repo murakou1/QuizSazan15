@@ -6,3 +6,6 @@ INSERT INTO quiz (content,choice1,choice2,choice3,choice4,answer) VALUES ('ア�
 INSERT INTO quiz (content,choice1,choice2,choice3,choice4,answer) VALUES ('IPv4ネットワークにおいて，ネットワークの疎通確認に使われるものはどれか？','BOOTP','DHCP','MIB','ping',4);
 INSERT INTO quiz (content,choice1,choice2,choice3,choice4,answer) VALUES ('固定区画方式を使用した主記憶において，大きさが100kバイト，200kバイト，300kバイト，400kバイトの区画をそれぞれ一つ設定する。この主記憶に，大きさが250kバイト，250kバイト，50kバイトのプログラムをベストフィット方式で割り当てた。この時点で，使用できない領域は合計で何kバイト生じているか。',200,250,350,450,2);
 INSERT INTO quiz (content,choice1,choice2,choice3,choice4,answer) VALUES ('Webアプリケーションの脆弱性対策のためのWAFの設置場所として最も適切な箇所はどこか。ここで，WAFには通信を暗号化したり復号したりする機能はないものとする。','ファイヤウォール','SSLアクセラレータ','Webサーバ','データベースサーバ',3);
+INSERT INTO quiz (content,choice1,choice2,choice3,choice4,answer) VALUES ('割込み処理の終了後に割込みによって中断された処理を割り込まれた場所から再開するために，割込み発生時にプロセッサが保存するものはどれか。','インデックスレジスタ','データレジスタ','プログラムカウンタ','命令レジスタ',3);
+INSERT INTO quiz (content,choice1,choice2,choice3,choice4,answer) VALUES ('AES-256で暗号化されていることが分かっている暗号文が与えられているとき，ブルートフォース攻撃で鍵と解読した平文を得るまでに必要な試行回数の最大値はどれか。','256','2の128乗','2の255乗','2の256乗',4);
+INSERT INTO quiz (content,choice1,choice2,choice3,choice4,answer) VALUES ('モジュール間の情報の受渡しがパラメタだけで行われる，結合度が最も弱いモジュール結合はどれか。','共通結合','制御結合','データ結合','内容結合',3);
