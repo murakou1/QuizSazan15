@@ -54,24 +54,29 @@ public class QuizeAuthConfiguration {
     // $ sshrun htpasswd -nbBC 10 user1 p@ss
 
     UserDetails user1 = User.withUsername("user1")
-        .password("{bcrypt}$2y$10$HPx9ln1zUc/ZZ9PriSvAsePCTK45YskMTz6vdzcdQGxvmuod/ZDNy").roles("USER").build();
+        .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e").roles("USER").build();
     UserDetails user2 = User.withUsername("user2")
-        .password("{bcrypt}$2y$10$0HVuCn2naFjtcTZ4lnkwxu9yJHzpzRKfQxPihH43K85F8r.J5eyj.").roles("USER").build();
+        .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e").roles("USER").build();
     UserDetails admin = User.withUsername("admin")
         .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e").roles("ADMIN").build();
     // $ sshrun htpasswd -nbBC 10 customer1 p@ss
-    UserDetails user3 = User.withUsername("user3")
-        .password("{bcrypt}$2y$10$5AOEQofwMt08KcY2MEpx7uj6sWMuLPSb02vqWufEEeZHh8suCP7Wm")
-        .roles("USER")
+    UserDetails customer1 = User.withUsername("customer1")
+        .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e")
+        .roles("CUSTOMER")
         .build();
     // $ sshrun htpasswd -nbBC 10 customer2 p@ss
-    UserDetails user4 = User.withUsername("user4")
-        .password("{bcrypt}$2y$10$WLsQaZTtZhFag3yAEPCvvO/Mp3wAiFl3Fh6AAXKYNGdrjojnxyHH2")
-        .roles("USER")
+    UserDetails customer2 = User.withUsername("customer2")
+        .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e")
+        .roles("CUSTOMER")
         .build();
-   
+    // $ sshrun htpasswd -nbBC 10 seller p@ss
+    UserDetails seller = User.withUsername("seller")
+        .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e")
+        .roles("SELLER")
+        .build();
+
     // 生成したユーザをImMemoryUserDetailsManagerに渡す（いくつでも良い）
-    return new InMemoryUserDetailsManager(user1, user2, admin, user3, user4);
+    return new InMemoryUserDetailsManager(user1, user2, admin, customer1, customer2, seller);
   }
 
 }
