@@ -69,9 +69,14 @@ public class QuizeAuthConfiguration {
         .password("{bcrypt}$2y$10$WLsQaZTtZhFag3yAEPCvvO/Mp3wAiFl3Fh6AAXKYNGdrjojnxyHH2")
         .roles("USER")
         .build();
-   
+    // $ sshrun htpasswd -nbBC 10 seller p@ss
+    UserDetails seller = User.withUsername("seller")
+        .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e")
+        .roles("SELLER")
+        .build();
+
     // 生成したユーザをImMemoryUserDetailsManagerに渡す（いくつでも良い）
-    return new InMemoryUserDetailsManager(user1, user2, admin, user3, user4);
+    return new InMemoryUserDetailsManager(user1, user2, admin, customer1, customer2, seller);
   }
 
 }
