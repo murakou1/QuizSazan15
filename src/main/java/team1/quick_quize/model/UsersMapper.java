@@ -24,15 +24,9 @@ public interface UsersMapper {
    */
   @Insert("INSERT INTO Users (userName,point) VALUES (#{userName},#{point});")
   @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
-  void insertChamber(Users Users);
+  void insertUser(Users Users);
 
   @Select("SELECT * from chamber where chamberName = #{chamberName}")
   ArrayList<Users> selectAllByChamberName(int point);
 
-  /**
-   * DBのカラム名とjavaクラスのフィールド名が同じ場合はそのまま代入してくれる（大文字小文字の違いは無視される）
-   * カラム名とフィールド名が異なる場合の対応も可能だが，いきなり複雑になるので，selectで指定するテーブル中のカラム名とクラスのフィールド名は同一になるよう設計することが望ましい
-   *
-   * @return
-   */
 }
