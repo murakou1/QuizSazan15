@@ -19,7 +19,7 @@ public class Users {
     return point;
   }
 
-  public void setChamberName(int point) {
+  public void setPoint(int point) {
     this.point = point;
   }
 
