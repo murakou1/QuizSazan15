@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-
 <style>
-  div.blocktxt1 {
-    height: 10em;
-    position: relative;
-    font-size: 32px;
+  .parent_t {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
   }
 
-  div.blocktxt1 p {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+  .title {
+    display: block;
+    width: 500px;
+    font-size: 80px;
   }
 
-  div.blocktxt2 {
-    height: 10em;
-    position: relative;
+  .parent_s {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
   }
 
-  div.blocktxt2 p {
-    margin: 0;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%)
+  .start {
+    display: block;
+    width: 80px;
+    font-size: 34px;
   }
 </style>
+
 <html>
 
 <head>
@@ -38,16 +35,12 @@
 </head>
 
 <body>
-  <div class="blocktxt1">
-    <p>
-      QuizSazan15
-    </p>
 
+  <div class="parent_t">
+    <div class="title">QuizSazan15</div>
   </div>
-  <div class="blocktxt2">
-    <p>
-      <a href="/home">start</a>
-    </p>
+  <div class="parent_s">
+    <div class="start"><a href="/home">start</a></div>
   </div>
 
 </body>
