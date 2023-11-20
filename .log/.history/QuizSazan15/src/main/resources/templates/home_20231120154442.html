@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>SpringBoot Samples</title>
+</head>
+
+<body>
+  <div><a href="/logout">ログアウト</a></div>
+
+  <div th:if="${loginUser}">
+    Hi [[${loginUser}]]
+  </div>
+
+  <p>
+    <a href="/wait">マッチに参加</a>
+  </p>
+</body>
+
+</html>
