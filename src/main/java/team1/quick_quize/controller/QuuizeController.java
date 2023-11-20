@@ -38,4 +38,18 @@ public class QuuizeController {
     return "wait.html";
   }
 
+  @GetMapping("/quize")
+  public String quize() {
+    return "quze.html";
+  }
+
+  @GetMapping("/answer")
+  public String answer() {
+    return "answer.html";
+  }
+
+  @GetMapping("/result")
+  public String result() {
+    return "result.html";
+  }
 }
