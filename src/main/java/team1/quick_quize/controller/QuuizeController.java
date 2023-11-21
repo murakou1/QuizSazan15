@@ -40,7 +40,7 @@ public class QuuizeController {
 
   @GetMapping("/quize")
   public String quize() {
-    return "quze.html";
+    return "quize.html";
   }
 
   @GetMapping("/answer")
