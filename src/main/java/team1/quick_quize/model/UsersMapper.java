@@ -26,7 +26,7 @@ public interface UsersMapper {
   @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
   void insertUser(Users Users);
 
-  @Select("SELECT * from chamber where chamberName = #{chamberName}")
-  ArrayList<Users> selectAllByChamberName(int point);
+  @Select("SELECT * from users;")
+  ArrayList<Users> selectAllByUserName();
 
 }

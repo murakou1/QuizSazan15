@@ -1,6 +1,7 @@
 package team1.quick_quize.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,8 @@ public class QuuizeController {
     User.setPoint(0);
 
     usersMapper.insertUser(User);
+    ArrayList<Users> Users = usersMapper.selectAllByUserName();
+    model.addAttribute("Users", Users);
     model.addAttribute("loginUser", loginUser);
     return "wait.html";
   }

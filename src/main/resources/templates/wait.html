@@ -58,11 +58,9 @@
     参加者
   </div>
 
-  <div class="sample3">
-    <p>・[[${loginUser}]]</p>
-    <p>・ゆーざー４</p>
-    <p>・ゆーざー２</p>
-    <p>・ゆーざー３</p>
+
+  <div class="sample3" th:each="user:${Users}">
+    <li>[[${user.userName}]]</li>
   </div>
 
   <p class="sample4">
