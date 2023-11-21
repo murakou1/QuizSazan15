@@ -66,7 +66,7 @@ public class QuuizeController {
   public String ExitWait(Principal prin, ModelMap model){
     String loginUser = prin.getName();
     model.addAttribute("loginUser", loginUser);
-    usersMapper.deleteByName(loginUser);
+    deleteByName();
     return "home.html";
   }
   
