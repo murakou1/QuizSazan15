@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Delete;
 
 @Mapper
 public interface UsersMapper {
@@ -30,6 +29,4 @@ public interface UsersMapper {
   @Select("SELECT * from users;")
   ArrayList<Users> selectAllByUserName();
 
-  @Delete("delete from users where userName=#{userName};")
-  void deleteByName(String userName); 
 }
