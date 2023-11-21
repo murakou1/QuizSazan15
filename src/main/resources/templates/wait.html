@@ -42,11 +42,21 @@
   }
 </style>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
 
 <head>
   <meta charset="utf-8">
   <title>SpringBoot Samples</title>
+  <script>
+    window.onload = function () {
+
+      var sse = new EventSource('/wait/step1');
+      sse.onmessage = function (event) {
+        console.log(event.data);
+        document.getElementById("p1").textContent = event.data;
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -70,6 +80,8 @@
   <p class="sample5">
     <a href="/quize">対戦開始</a>
   </p>
+
+  <p id="p1"></p>
 </body>
 
 </html>
