@@ -5,7 +5,7 @@
   }
 
   .title{
-    font-size:34px;
+    font-size:34;
   }
 </style>
 
@@ -18,8 +18,7 @@
 
 <body>
   <div class="logout">
-    <input type="button" onclick="location.href='/logout'" value="ログアウト">
-  </div>
+    <button formaction="/logout">ログアウト</button></div>
 
   <div class="title" th:if="${loginUser}">
     Hi [[${loginUser}]]
