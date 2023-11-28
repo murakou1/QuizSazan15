@@ -41,26 +41,18 @@ public class QuuizeController {
     User.setPoint(0);
 
     usersMapper.insertUser(User);
-    ArrayList<Users> Users = usersMapper.selectAllByUserName();
-    model.addAttribute("Users", Users);
+    ArrayList<Users> users = usersMapper.selectAllByUserName();
+    model.addAttribute("users", users);
     model.addAttribute("loginUser", loginUser);
     return "wait.html";
   }
 
   @GetMapping("/wait/step1")
-  public SseEmitter pushCount() {
+  public SseEmitter pushName() {
 
-
-    // finalは初期化したあとに再代入が行われない変数につける（意図しない再代入を防ぐ）
-    final SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);//
-    // 引数にLongの最大値をTimeoutとして指定する
-
-    try {
-      this.pu.count(emitter);
-    } catch (IOException e) {
-      emitter.complete();
-    }
-    return emitter;
+    final SseEmitter sseEmitter = new SseEmitter();
+    this.pu.pushName(sseEmitter);
+    return sseEmitter;
   }
   @GetMapping("/wait/step2")
   public String ExitWait(Principal prin, ModelMap model){
@@ -69,7 +61,7 @@ public class QuuizeController {
     usersMapper.deleteByName(loginUser);
     return "home.html";
   }
-  
+
   @GetMapping("/quize")
   public String quize() {
     return "quize.html";
