@@ -53,6 +53,8 @@
       var sse = new EventSource('/wait/step1');
       sse.onmessage = function (event) {
         console.log(event.data);
+        //var users_list = JSON.parse(event.data);//JSONオブジェクトとしてparse
+        //var tbody = document.getElementById("users_list");
         document.getElementById("p1").textContent = event.data;
       }
     }
@@ -69,10 +71,6 @@
   </div>
 
 
-  <div class="sample3" th:each="user:${Users}">
-    <li>[[${user.userName}]]</li>
-  </div>
-
   <p class="sample4">
     <input type="button" onclick="location.href='/wait/step2'" value="退出">
   </p>
@@ -82,6 +80,7 @@
   </p>
 
   <p id="p1"></p>
+
 </body>
 
 </html>
