@@ -26,18 +26,28 @@
     width: 700px;
     height: 30px;
     position: relative;
-    top: 130px;
+    top: 110px;
     left: 50px;
     font-size: 24px;
   }
 
   .sample4 {
     /*background: pink;*/
-    width: 60px;
+    width: 80px;
     height: 40px;
     position: relative;
     top: 300px;
     left: 70%;
+    font-size: 16px;
+  }
+
+  .sample5 {
+    /*background: pink;*/
+    width: 80px;
+    height: 40px;
+    position: relative;
+    top: 245px;
+    left: 60%;
     font-size: 16px;
   }
 </style>
@@ -53,9 +63,17 @@
       var sse = new EventSource('/wait/step1');
       sse.onmessage = function (event) {
         console.log(event.data);
-        //var users_list = JSON.parse(event.data);//JSONオブジェクトとしてparse
-        //var tbody = document.getElementById("users_list");
-        document.getElementById("p1").textContent = event.data;
+        var users_list = JSON.parse(event.data);//JSONオブジェクトとしてparse
+        var users_table = "";
+        users_table=users_table+"<ul>";
+        for (var i = 0; i < users_list.length; i++) {
+          var u_name = "<li>" + users_list[i].userName + "</li>";
+          users_table = users_table + u_name;
+        }
+        users_table = users_table + "<ul>";
+        console.log(users_table);
+        var element = document.getElementById("users_list");
+        element.innerHTML = users_table;
       }
     }
   </script>
@@ -72,14 +90,12 @@
 
 
   <p class="sample4">
+    <a href="/quize">対戦開始</a>
     <input type="button" onclick="location.href='/wait/step2'" value="退出">
   </p>
 
-  <p class="sample5">
-    <a href="/quize">対戦開始</a>
-  </p>
 
-  <p id="p1"></p>
+  <div  id="users_list" class="sample3"></div>
 
 </body>
 

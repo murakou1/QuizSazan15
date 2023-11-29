@@ -31,5 +31,5 @@ public interface UsersMapper {
   ArrayList<Users> selectAllByUserName();
 
   @Delete("delete from users where userName=#{userName};")
-  void deleteByName(String userName); 
+  void deleteByName(String userName);
 }
