@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import team1.quick_quize.model.Users;
 import team1.quick_quize.model.UsersMapper;
+import team1.quick_quize.model.Quiz;
+import team1.quick_quize.model.QuizMapper;
 import team1.quick_quize.service.AsyncPrintUsers;
 
 @Controller
@@ -22,6 +24,9 @@ public class QuuizeController {
 
   @Autowired
   UsersMapper usersMapper;
+
+  @Autowired
+  QuizMapper quizMapper;
 
   @Autowired
   private AsyncPrintUsers pu;
@@ -54,8 +59,9 @@ public class QuuizeController {
     this.pu.pushName(sseEmitter);
     return sseEmitter;
   }
+
   @GetMapping("/wait/step2")
-  public String ExitWait(Principal prin, ModelMap model){
+  public String ExitWait(Principal prin, ModelMap model) {
     String loginUser = prin.getName();
     model.addAttribute("loginUser", loginUser);
     usersMapper.deleteByName(loginUser);
@@ -63,7 +69,10 @@ public class QuuizeController {
   }
 
   @GetMapping("/quize")
-  public String quize() {
+  public String quize(Principal prin, ModelMap model) {
+    Quiz quiz = quizMapper.selectAllByNo(1);
+    model.addAttribute("quiz", quiz);
+
     return "quize.html";
   }
 

@@ -13,6 +13,3 @@ CREATE TABLE quiz(
     choice4 VARCHAR,
     answer INT
 );
-//content:問題文  choice:選択肢  answer:答えの番号
-
-
