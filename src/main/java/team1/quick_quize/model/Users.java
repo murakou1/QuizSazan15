@@ -15,7 +15,7 @@ public class Users {
     this.userName = userName;
   }
 
-  public int getpoint() {
+  public int getPoint() {
     return point;
   }
 
