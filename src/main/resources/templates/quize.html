@@ -3,13 +3,63 @@
 
 <style>
   .sample1 {
-    /*background: pink;*/
-    width: 700px;
-    height: 50px;
+    background: pink;
+    width: 1200px;
+    height: 150px;
     position: relative;
     top: 50px;
-    left: 30px;
+    left: 70px;
     font-size: 34px;
+  }
+
+  .sample2 {
+    /*background: pink;*/
+    width: 100px;
+    height: 40px;
+    position: relative;
+    top: 250px;
+    left: 50px;
+    font-size: 16px;
+  }
+
+  .choice1 {
+    background: blue;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font-size: 30px;
+  }
+
+  .choice2 {
+    background: blue;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    font-size: 30px;
+  }
+
+  .choice3 {
+    background: blue;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    font-size: 30px;
+  }
+
+  .choice4 {
+    background: blue;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    font-size: 30px;
   }
 
   .user1 {
@@ -60,12 +110,30 @@
 
 <body>
   <div class="sample1">
-    Q1：問題の内容
+    Q1：[[${quiz.content}]]
   </div>
 
-  <p>
-    <a href="/answer">answer</a>
-  </p>
+  <div class="choice1">
+    1：[[${quiz.choice1}]]
+  </div>
+
+  <div class="choice2">
+    2：[[${quiz.choice2}]]
+  </div>
+
+  <div class="choice3">
+    3：[[${quiz.choice3}]]
+  </div>
+
+  <div class="choice4">
+    4：[[${quiz.choice4}]]
+  </div>
+
+  <div class="sample2">
+    <p>
+      <a href="/answer">answer</a>
+    </p>
+  </div>
 
   <div class="user1">
     user1
