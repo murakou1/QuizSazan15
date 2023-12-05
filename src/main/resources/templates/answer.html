@@ -88,8 +88,17 @@
 </head>
 
 <body>
-  <div class="sample1">
-    A：2.答えの内容
+  <div class="sample1" th:if="${quiz.answer == 1}">
+    A：1.[[${quiz.choice1}]]
+  </div>
+  <div class="sample1" th:if="${quiz.answer == 2}">
+    A：2.[[${quiz.choice2}]]
+  </div>
+  <div class="sample1" th:if="${quiz.answer == 3}">
+    A：3.[[${quiz.choice3}]]
+  </div>
+  <div class="sample1" th:if="${quiz.answer == 4}">
+    A：4.[[${quiz.choice4}]]
   </div>
   <div class="sample2">
     解説
@@ -104,27 +113,40 @@
     </p>
   </div>
 
-  <div class="user1">
+  <div class="user1" >
     user1
-    <div>4p</div>
-    <div>+2</div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 1}">
+        [[${user.point}]]p
+      </div>
+    </div>
+
   </div>
   <div class="user2">
     user2
-    <div>2p</div>
-    <div>+1</div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 2}">
+        [[${user.point}]]p
+      </div>
+    </div>
   </div>
 
   <div class="user3">
     user3
-    <div>2p</div>
-    <div>+0</div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 3}">
+        [[${user.point}]]p
+      </div>
+    </div>
   </div>
 
-  <div class="user4">
+  <div class="user4" >
     user4
-    <div>3p</div>
-    <div>+3</div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 4}">
+        [[${user.point}]]p
+      </div>
+    </div>
   </div>
 
 </body>

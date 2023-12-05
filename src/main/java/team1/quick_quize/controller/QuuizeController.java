@@ -77,7 +77,11 @@ public class QuuizeController {
   }
 
   @GetMapping("/answer")
-  public String answer() {
+  public String answer(Principal prin, ModelMap model) {
+    Quiz quiz = quizMapper.selectAllByNo(1);
+    model.addAttribute("quiz", quiz);
+    ArrayList<Users> Users = usersMapper.selectAllByUserName();
+    model.addAttribute("Users",Users);
     return "answer.html";
   }
 
