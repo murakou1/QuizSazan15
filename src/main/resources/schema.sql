@@ -13,3 +13,10 @@ CREATE TABLE quiz(
     choice4 VARCHAR,
     answer INT
 );
+
+CREATE TABLE answer(
+    no IDENTITY,
+    id INT,
+    username VARCHAR NOT NULL,
+    choice INT
+);
