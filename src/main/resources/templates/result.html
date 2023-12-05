@@ -9,6 +9,7 @@
     left: 30px;
     font-size: 34px;
   }
+
   .sample2 {
     /*background: pink;*/
     width: 700px;
@@ -18,6 +19,7 @@
     left: 50px;
     font-size: 24px;
   }
+
   .sample4 {
     /*background: pink;*/
     width: 60px;
@@ -41,10 +43,42 @@
   </div>
 
   <div class="sample2">
-    <li>1位：user point</li>
-    <li>2位：user point</li>
-    <li>3位：user point</li>
-    <li>4位：user point</li>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 1}">
+        <li>
+          1位：
+          [[${user.userName}]]
+          [[${user.point}]]p
+        </li>
+      </div>
+    </div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 2}">
+        <li>
+          2位：
+          [[${user.userName}]]
+          [[${user.point}]]p
+        </li>
+      </div>
+    </div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 3}">
+        <li>
+          3位：
+          [[${user.userName}]]
+          [[${user.point}]]p
+        </li>
+      </div>
+    </div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 4}">
+        <li>
+          4位：
+          [[${user.userName}]]
+          [[${user.point}]]p
+        </li>
+      </div>
+    </div>
   </div>
 
   <div class="sample4">
