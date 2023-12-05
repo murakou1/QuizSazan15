@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import team1.quick_quize.model.Users;
 import team1.quick_quize.model.UsersMapper;
+import team1.quick_quize.model.Answer;
+import team1.quick_quize.model.AnswerMapper;
 import team1.quick_quize.model.Quiz;
 import team1.quick_quize.model.QuizMapper;
 import team1.quick_quize.service.AsyncPrintUsers;
@@ -27,6 +29,9 @@ public class QuuizeController {
 
   @Autowired
   QuizMapper quizMapper;
+
+  @Autowired
+  AnswerMapper answerMapper;
 
   @Autowired
   private AsyncPrintUsers pu;
@@ -73,13 +78,21 @@ public class QuuizeController {
     Quiz quiz = quizMapper.selectAllByNo(1);
     model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
-    model.addAttribute("Users",Users);
+    model.addAttribute("Users", Users);
 
     return "quize.html";
   }
 
-  @GetMapping("/answer")
-  public String answer(Principal prin, ModelMap model) {
+  @GetMapping("/answer/{param}")
+  public String answer(@PathVariable String param, Principal prin, ModelMap model) {
+    int choice = Integer.parseInt(param);
+    Answer answer = new Answer();
+    answer.setChoice(choice);
+    answer.setUserName(prin.getName());
+    answer.setId(1);
+    answerMapper.insertAnswer(answer);
+
+
     Quiz quiz = quizMapper.selectAllByNo(1);
     model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
