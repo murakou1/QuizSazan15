@@ -80,6 +80,15 @@
   </p>
 
   <p id="p1"></p>
+  <tbody id="fruits_list">
+    <span th:if="${fruits7}">
+      <!--クエリパラメータでIDを渡して購入処理を実行する-->
+      <tr th:each="fruit,stat:${fruits7}">
+        <td>[[${stat.index}]]</td>
+        <td>[[${fruit.userName}]]</td>
+      </tr>
+    </span>
+  </tbody>
 
 </body>
 
