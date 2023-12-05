@@ -72,6 +72,8 @@ public class QuuizeController {
   public String quize(Principal prin, ModelMap model) {
     Quiz quiz = quizMapper.selectAllByNo(1);
     model.addAttribute("quiz", quiz);
+    ArrayList<Users> Users = usersMapper.selectAllByUserName();
+    model.addAttribute("Users",Users);
 
     return "quize.html";
   }
@@ -86,7 +88,10 @@ public class QuuizeController {
   }
 
   @GetMapping("/result")
-  public String result() {
+  public String result(Principal prin, ModelMap model) {
+    ArrayList<Users> Users = usersMapper.selectAllByUserName();
+    model.addAttribute("Users", Users);
+
     return "result.html";
   }
 }

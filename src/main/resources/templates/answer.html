@@ -113,37 +113,41 @@
     </p>
   </div>
 
-  <div class="user1" >
-    user1
+  <div class="user1">
     <div th:each="user:${Users}">
       <div th:if="${user.id == 1}">
+        [[${user.userName}]]
+        <br/>
         [[${user.point}]]p
       </div>
     </div>
 
   </div>
   <div class="user2">
-    user2
     <div th:each="user:${Users}">
       <div th:if="${user.id == 2}">
+        [[${user.userName}]]
+        <br />
         [[${user.point}]]p
       </div>
     </div>
   </div>
 
   <div class="user3">
-    user3
     <div th:each="user:${Users}">
       <div th:if="${user.id == 3}">
+        [[${user.userName}]]
+        <br />
         [[${user.point}]]p
       </div>
     </div>
   </div>
 
-  <div class="user4" >
-    user4
+  <div class="user4">
     <div th:each="user:${Users}">
       <div th:if="${user.id == 4}">
+        [[${user.userName}]]
+        <br />
         [[${user.point}]]p
       </div>
     </div>

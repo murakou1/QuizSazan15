@@ -110,7 +110,7 @@
 
 <body>
   <div class="sample1">
-    Q1：[[${quiz.content}]] 
+    Q1：[[${quiz.content}]]
   </div>
 
   <div class="choice1">
@@ -127,6 +127,7 @@
 
   <div class="choice4">
     <button onclick="location.href='/answer'">4：[[${quiz.choice4}]]</button>
+  </div>
 
   <div class="sample2">
     <p>
@@ -135,23 +136,43 @@
   </div>
 
   <div class="user1">
-    user1
-    <div>2p</div>
-  </div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 1}">
+        [[${user.userName}]]
+        <br />
+        [[${user.point}]]p
+      </div>
+    </div>
 
+  </div>
   <div class="user2">
-    user2
-    <div>1p</div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 2}">
+        [[${user.userName}]]
+        <br />
+        [[${user.point}]]p
+      </div>
+    </div>
   </div>
 
   <div class="user3">
-    user3
-    <div>2p</div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 3}">
+        [[${user.userName}]]
+        <br />
+        [[${user.point}]]p
+      </div>
+    </div>
   </div>
 
   <div class="user4">
-    user4
-    <div>0p</div>
+    <div th:each="user:${Users}">
+      <div th:if="${user.id == 4}">
+        [[${user.userName}]]
+        <br />
+        [[${user.point}]]p
+      </div>
+    </div>
   </div>
 
 </body>
