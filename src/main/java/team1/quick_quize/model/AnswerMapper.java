@@ -23,7 +23,7 @@ public interface AnswerMapper {
    *
    * @param Users
    */
-  @Insert("INSERT INTO answer (id,userName,choice) VALUES (#(id),#{userName},#{choice});")
+  @Insert("INSERT INTO answer (id,userName,choice) VALUES (#{id},#{userName},#{choice});")
   @Options(useGeneratedKeys = true, keyColumn = "no", keyProperty = "no")
   void insertAnswer(Answer Answer);
 
