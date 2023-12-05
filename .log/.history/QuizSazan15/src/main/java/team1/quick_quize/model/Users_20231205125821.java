@@ -20,11 +20,10 @@ public class Users {
   }
 
   public int addPoint(int point){
-    int p;
-    p=point++;
-    return p;
+    point++;
+    return point;
   }
-  
+
   public void setPoint(int point) {
     this.point = point;
   }

@@ -19,12 +19,6 @@ public class Users {
     return point;
   }
 
-  public int addPoint(int point){
-    int p;
-    p=point++;
-    return p;
-  }
-  
   public void setPoint(int point) {
     this.point = point;
   }
