@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.Delete;
 
 @Mapper
@@ -13,6 +14,9 @@ public interface UsersMapper {
 
   @Select("SELECT id,userName,point from Users where id = #{id}")
   Users selectById(int id);
+
+  @Select("SELECT point from Users where id = #{id}")
+  int selectPointById(int id);
 
   /**
    * #{userName}などはinsertの引数にあるChamberクラスのフィールドを表しています 引数に直接String
@@ -32,4 +36,7 @@ public interface UsersMapper {
 
   @Delete("delete from users where userName=#{userName};")
   void deleteByName(String userName);
+
+  @Update("update users set point = #{point} where id=#{id};")
+  void updateById(int point, int id);
 }
