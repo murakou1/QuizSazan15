@@ -86,10 +86,13 @@ public class QuuizeController {
   @GetMapping("/answer/{param}")
   public String answer(@PathVariable String param, Principal prin, ModelMap model) {
     int choice = Integer.parseInt(param);
+    String userName = prin.getName();
+    int id = usersMapper.selectByName(userName);
+
     Answer answer = new Answer();
     answer.setChoice(choice);
     answer.setUserName(prin.getName());
-    answer.setId(1);
+    answer.setId(id);
     answerMapper.insertAnswer(answer);
 
     int answer_num = quizMapper.selectAnswerByNo(1);
