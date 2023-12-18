@@ -17,4 +17,6 @@ public interface QuizMapper {
   @Select("SELECT answer from quiz where no = #{no}")
   int selectAnswerByNo(int no);
 
+  @Select("SELECT * FROM quiz ORDER BY RAND() LIMIT 1")
+  Quiz selectRandomQuiz();
 }
