@@ -113,4 +113,19 @@ public class QuuizeController {
 
     return "result.html";
   }
+
+  @GetMapping("/randomQuiz")
+  public String randomQuiz(Principal prin, ModelMap model) {
+    String loginUser = prin.getName();
+    model.addAttribute("loginUser", loginUser);
+
+    // 修正: QuizMapperのメソッドを呼び出してランダムなクイズを取得
+    Quiz randomQuiz = quizMapper.selectRandomQuiz();
+    model.addAttribute("quiz", randomQuiz);
+
+    ArrayList<Users> users = usersMapper.selectAllByUserName();
+    model.addAttribute("users", users);
+
+    return "quize.html";
+  }
 }
