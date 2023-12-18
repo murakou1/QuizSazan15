@@ -92,11 +92,17 @@ public class QuuizeController {
     answer.setId(1);
     answerMapper.insertAnswer(answer);
 
+    int answer_num = quizMapper.selectAnswerByNo(1);
+    if (choice == answer_num) {
+      int p = usersMapper.selectPointById(1);
+      p = p + 3;
+      usersMapper.updateById(p, 1);
+    }
 
     Quiz quiz = quizMapper.selectAllByNo(1);
     model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
-    model.addAttribute("Users",Users);
+    model.addAttribute("Users", Users);
     return "answer.html";
   }
 

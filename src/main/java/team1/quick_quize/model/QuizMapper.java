@@ -14,4 +14,7 @@ public interface QuizMapper {
   @Select("SELECT * from quiz where no = #{no}")
   Quiz selectAllByNo(int no);
 
+  @Select("SELECT answer from quiz where no = #{no}")
+  int selectAnswerByNo(int no);
+
 }
