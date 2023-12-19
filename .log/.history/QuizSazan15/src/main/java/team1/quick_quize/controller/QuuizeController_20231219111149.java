@@ -97,7 +97,7 @@ public class QuuizeController {
     answer.setId(id);
     answerMapper.insertAnswer(answer);
 
-    int answer_num = quizMapper.selectAnswerByNo(++quize_no);
+    int answer_num = quizMapper.selectAnswerByNo(1);
     if (choice == answer_num) {
       int p = usersMapper.selectPointById(1);
       p = p + 3;
@@ -116,8 +116,6 @@ public class QuuizeController {
     cnt++;
 
     if(cnt==3){
-      cnt=0;
-      quize_no=0;
       ArrayList<Users> Users2 = usersMapper.selectAllByUserName();
       model.addAttribute("Users", Users2);
       return "result.html";
