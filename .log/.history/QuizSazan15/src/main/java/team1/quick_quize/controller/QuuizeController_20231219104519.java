@@ -24,7 +24,6 @@ import team1.quick_quize.service.AsyncPrintUsers;
 @Controller
 public class QuuizeController {
   public static int cnt=0;
-  public static int quize_no=0;
 
   @Autowired
   UsersMapper usersMapper;
@@ -77,7 +76,7 @@ public class QuuizeController {
 
   @GetMapping("/quize")
   public String quize(Principal prin, ModelMap model) {
-    Quiz quiz = quizMapper.selectAllByNo(++quize_no);
+    Quiz quiz = quizMapper.selectAllByNo(1);
     model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
     model.addAttribute("Users", Users);
@@ -110,17 +109,11 @@ public class QuuizeController {
 
   @GetMapping("/result")
   public String result(Principal prin, ModelMap model) {
-    cnt++;
-     Quiz quiz = quizMapper.selectAllByNo(++quize_no);
-    model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
     model.addAttribute("Users", Users);
-
+    cnt++;
     if(cnt==3){
       cnt=0;
-      quize_no=0;
-      ArrayList<Users> Users2 = usersMapper.selectAllByUserName();
-      model.addAttribute("Users", Users2);
       return "result.html";
     }
 

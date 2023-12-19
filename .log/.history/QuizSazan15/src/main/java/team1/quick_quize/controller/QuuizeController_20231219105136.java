@@ -110,17 +110,11 @@ public class QuuizeController {
 
   @GetMapping("/result")
   public String result(Principal prin, ModelMap model) {
-    cnt++;
-     Quiz quiz = quizMapper.selectAllByNo(++quize_no);
-    model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
     model.addAttribute("Users", Users);
-
+    cnt++;
     if(cnt==3){
       cnt=0;
-      quize_no=0;
-      ArrayList<Users> Users2 = usersMapper.selectAllByUserName();
-      model.addAttribute("Users", Users2);
       return "result.html";
     }
 

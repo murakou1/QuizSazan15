@@ -118,7 +118,6 @@ public class QuuizeController {
 
     if(cnt==3){
       cnt=0;
-      quize_no=0;
       ArrayList<Users> Users2 = usersMapper.selectAllByUserName();
       model.addAttribute("Users", Users2);
       return "result.html";
