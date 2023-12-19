@@ -23,11 +23,16 @@ public class AsyncPrintUsers {
 
   boolean dbUpdated = false;
 
+  int pushButton = 0;
+
   @Async
   public void pushName(SseEmitter emitter) {
     dbUpdated = true;
     try {
       while (true) {// 無限ループ
+        if (pushButton == 1) {
+          emitter.send(1);
+        }
         // DBが更新されていなければ0.5s休み
         if (false == dbUpdated) {
           TimeUnit.MILLISECONDS.sleep(500);
@@ -46,6 +51,10 @@ public class AsyncPrintUsers {
       emitter.complete();
     }
     System.out.println("asyncShowFruitsList complete");
+  }
+
+  public void setButton(int flag) {
+    this.pushButton = flag;
   }
 
 }
