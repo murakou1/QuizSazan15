@@ -97,7 +97,7 @@ public class QuuizeController {
     answer.setId(id);
     answerMapper.insertAnswer(answer);
 
-    int answer_num = quizMapper.selectAnswerByNo(++quize_no);
+    int answer_num = quizMapper.selectAnswerByNo(1);
     if (choice == answer_num) {
       int p = usersMapper.selectPointById(1);
       p = p + 3;
