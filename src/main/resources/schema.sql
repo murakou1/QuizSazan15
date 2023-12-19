@@ -20,3 +20,8 @@ CREATE TABLE answer(
     username VARCHAR NOT NULL,
     choice INT
 );
+
+CREATE TABLE status(
+    num IDENTITY,
+    no INT
+);
