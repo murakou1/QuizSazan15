@@ -77,10 +77,8 @@ public class QuuizeController {
 
   @GetMapping("/quize")
   public String quize(Principal prin, ModelMap model) {
-   Quiz randomQuiz = quizMapper.selectRandomQuiz();
-    model.addAttribute("quiz", randomQuiz);
-    quize_no=randomQuiz.getNo();
-
+    Quiz quiz = quizMapper.selectAllByNo(1);
+    model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
     model.addAttribute("Users", Users);
 
@@ -99,14 +97,14 @@ public class QuuizeController {
     answer.setId(id);
     answerMapper.insertAnswer(answer);
 
-    int answer_num = quizMapper.selectAnswerByNo(quize_no);
+    int answer_num = quizMapper.selectAnswerByNo(++quize_no);
     if (choice == answer_num) {
       int p = usersMapper.selectPointById(1);
       p = p + 3;
       usersMapper.updateById(p, 1);
     }
 
-    Quiz quiz = quizMapper.selectAllByNo(quize_no);
+    Quiz quiz = quizMapper.selectAllByNo(quiz_no);
     model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
     model.addAttribute("Users", Users);
@@ -125,17 +123,10 @@ public class QuuizeController {
       return "result.html";
     }
 
-    String loginUser = prin.getName();
-    model.addAttribute("loginUser", loginUser);
-
-    // 修正: QuizMapperのメソッドを呼び出してランダムなクイズを取得
-    Quiz randomQuiz = quizMapper.selectRandomQuiz();
-    model.addAttribute("quiz", randomQuiz);
-    quize_no=randomQuiz.getNo();
-
-    ArrayList<Users> users = usersMapper.selectAllByUserName();
-    model.addAttribute("users", users);
-
+    Quiz quiz = quizMapper.selectAllByNo(++quize_no);
+    model.addAttribute("quiz", quiz);
+    ArrayList<Users> Users = usersMapper.selectAllByUserName();
+    model.addAttribute("Users", Users);
     return "quize.html";
   }
 
@@ -147,7 +138,6 @@ public class QuuizeController {
     // 修正: QuizMapperのメソッドを呼び出してランダムなクイズを取得
     Quiz randomQuiz = quizMapper.selectRandomQuiz();
     model.addAttribute("quiz", randomQuiz);
-    quize_no=randomQuiz.getNo();
 
     ArrayList<Users> users = usersMapper.selectAllByUserName();
     model.addAttribute("users", users);
