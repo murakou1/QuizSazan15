@@ -77,10 +77,8 @@ public class QuuizeController {
 
   @GetMapping("/quize")
   public String quize(Principal prin, ModelMap model) {
-   Quiz randomQuiz = quizMapper.selectRandomQuiz();
-    model.addAttribute("quiz", randomQuiz);
-    quize_no=randomQuiz.getNo();
-
+    Quiz quiz = quizMapper.selectAllByNo(1);
+    model.addAttribute("quiz", quiz);
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
     model.addAttribute("Users", Users);
 
@@ -131,7 +129,6 @@ public class QuuizeController {
     // 修正: QuizMapperのメソッドを呼び出してランダムなクイズを取得
     Quiz randomQuiz = quizMapper.selectRandomQuiz();
     model.addAttribute("quiz", randomQuiz);
-    quize_no=randomQuiz.getNo();
 
     ArrayList<Users> users = usersMapper.selectAllByUserName();
     model.addAttribute("users", users);

@@ -131,7 +131,6 @@ public class QuuizeController {
     // 修正: QuizMapperのメソッドを呼び出してランダムなクイズを取得
     Quiz randomQuiz = quizMapper.selectRandomQuiz();
     model.addAttribute("quiz", randomQuiz);
-    quize_no=randomQuiz.getNo();
 
     ArrayList<Users> users = usersMapper.selectAllByUserName();
     model.addAttribute("users", users);
