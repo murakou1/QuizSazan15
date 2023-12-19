@@ -62,18 +62,21 @@
 
       var sse = new EventSource('/wait/step1');
       sse.onmessage = function (event) {
-        console.log(event.data);
         var users_list = JSON.parse(event.data);//JSONオブジェクトとしてparse
-        var users_table = "";
-        users_table=users_table+"<ul>";
-        for (var i = 0; i < users_list.length; i++) {
-          var u_name = "<li>" + users_list[i].userName + "</li>";
-          users_table = users_table + u_name;
+        if (users_list==1) {
+          window.location.href = "/quize";
+        } else {
+          var users_table = "";
+          users_table = users_table + "<ul>";
+          for (var i = 0; i < users_list.length; i++) {
+            var u_name = "<li>" + users_list[i].userName + "</li>";
+            users_table = users_table + u_name;
+          }
+          users_table = users_table + "<ul>";
+          console.log(users_table);
+          var element = document.getElementById("users_list");
+          element.innerHTML = users_table;
         }
-        users_table = users_table + "<ul>";
-        console.log(users_table);
-        var element = document.getElementById("users_list");
-        element.innerHTML = users_table;
       }
     }
   </script>
@@ -90,7 +93,7 @@
 
 
   <p class="sample4">
-    <a href="/quize">対戦開始</a>
+    <input type="button" onclick="location.href='/wait/step3'" value="対戦開始">
     <input type="button" onclick="location.href='/wait/step2'" value="退出">
   </p>
 

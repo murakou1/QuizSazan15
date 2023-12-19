@@ -76,6 +76,12 @@ public class QuuizeController {
     return "home.html";
   }
 
+  @GetMapping("/wait/step3")
+  public String goQuiz(Principal prin, ModelMap model){
+    pu.setButton(1);
+    return "wait.html";
+  }
+
   @GetMapping("/quize")
   public String quize(Principal prin, ModelMap model) {
 
