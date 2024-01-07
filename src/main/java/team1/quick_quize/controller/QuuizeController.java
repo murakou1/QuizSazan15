@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import org.springframework.ui.Model;
 
 import team1.quick_quize.model.Users;
 import team1.quick_quize.model.UsersMapper;
@@ -165,5 +166,19 @@ public class QuuizeController {
     model.addAttribute("users", users);
 
     return "quize.html";
+  }
+
+  @PostMapping("/exitPlayer")
+  public String exitPlayer(Principal principal, Model model) {
+    String loginUser = principal.getName();
+
+    // プレイヤーの退出処理を行う（例: データベースから削除など）
+    usersMapper.deleteByName(loginUser);
+
+    ArrayList<Users> users = usersMapper.selectAllByUserName();
+    model.addAttribute("users", users);
+    model.addAttribute("loginUser", loginUser);
+
+    return "home.html";
   }
 }
