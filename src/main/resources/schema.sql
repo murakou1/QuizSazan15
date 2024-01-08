@@ -22,6 +22,6 @@ CREATE TABLE answer(
 );
 
 CREATE TABLE status(
-    num IDENTITY,
-    no INT
+    no IDENTITY,
+    id INT
 );

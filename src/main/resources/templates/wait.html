@@ -63,7 +63,7 @@
       var sse = new EventSource('/wait/step1');
       sse.onmessage = function (event) {
         var users_list = JSON.parse(event.data);//JSONオブジェクトとしてparse
-        if (users_list==1) {
+        if (users_list == 1) {
           window.location.href = "/quize";
         } else {
           var users_table = "";
@@ -98,7 +98,7 @@
   </p>
 
 
-  <div  id="users_list" class="sample3"></div>
+  <div id="users_list" class="sample3"></div>
 
 </body>
 

@@ -21,4 +21,8 @@ public interface StatusMapper {
    *
    */
 
+  @Insert("INSERT INTO status (id) VALUES (#{id});")
+  @Options(useGeneratedKeys = true, keyColumn = "no", keyProperty = "no")
+  void insertStatus(Status status);
+
 }
