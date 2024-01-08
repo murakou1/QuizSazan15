@@ -20,6 +20,8 @@ import team1.quick_quize.model.Answer;
 import team1.quick_quize.model.AnswerMapper;
 import team1.quick_quize.model.Quiz;
 import team1.quick_quize.model.QuizMapper;
+import team1.quick_quize.model.Status;
+import team1.quick_quize.model.StatusMapper;
 import team1.quick_quize.service.AsyncPrintUsers;
 
 @Controller
@@ -36,6 +38,9 @@ public class QuuizeController {
 
   @Autowired
   AnswerMapper answerMapper;
+
+  @Autowired
+  StatusMapper statusMapper;
 
   @Autowired
   private AsyncPrintUsers pu;
@@ -78,7 +83,7 @@ public class QuuizeController {
   }
 
   @GetMapping("/wait/step3")
-  public String goQuiz(Principal prin, ModelMap model){
+  public String goQuiz(Principal prin, ModelMap model) {
     pu.setButton(1);
     return "wait.html";
   }
@@ -103,6 +108,8 @@ public class QuuizeController {
     int choice = Integer.parseInt(param);
     String userName = prin.getName();
     int id = usersMapper.selectByName(userName);
+    Status status = new Status();
+    status.setId(id);
 
     Answer answer = new Answer();
     answer.setChoice(choice);
@@ -115,6 +122,7 @@ public class QuuizeController {
       int p = usersMapper.selectPointById(1);
       p = p + 3;
       usersMapper.updateById(p, 1);
+      statusMapper.insertStatus(status);
     }
 
     Quiz quiz = quizMapper.selectAllByNo(quize_no);

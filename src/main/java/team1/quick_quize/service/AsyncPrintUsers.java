@@ -32,6 +32,7 @@ public class AsyncPrintUsers {
       while (true) {// 無限ループ
         if (pushButton == 1) {
           emitter.send(1);
+          //pushButton = 0;
         }
         // DBが更新されていなければ0.5s休み
         if (false == dbUpdated) {
