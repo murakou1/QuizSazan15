@@ -25,3 +25,14 @@ CREATE TABLE status(
     no IDENTITY,
     id INT
 );
+
+CREATE TABLE statusquiz(
+    no IDENTITY,
+    content VARCHAR,
+    choice1 VARCHAR,
+    choice2 VARCHAR,
+    choice3 VARCHAR,
+    choice4 VARCHAR,
+    answer INT,
+    cnt INT
+);

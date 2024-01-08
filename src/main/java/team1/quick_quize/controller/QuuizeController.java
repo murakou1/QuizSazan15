@@ -22,6 +22,8 @@ import team1.quick_quize.model.Quiz;
 import team1.quick_quize.model.QuizMapper;
 import team1.quick_quize.model.Status;
 import team1.quick_quize.model.StatusMapper;
+import team1.quick_quize.model.StatusQuiz;
+import team1.quick_quize.model.StatusQuizMapper;
 import team1.quick_quize.service.AsyncPrintUsers;
 
 @Controller
@@ -43,6 +45,9 @@ public class QuuizeController {
   StatusMapper statusMapper;
 
   @Autowired
+  StatusQuizMapper statusQuizMapper;
+
+  @Autowired
   private AsyncPrintUsers pu;
 
   @GetMapping("/home")
@@ -58,6 +63,10 @@ public class QuuizeController {
     Users User = new Users();
     User.setUserName(loginUser);
     User.setPoint(0);
+
+    cnt = 0;
+    quizecnt = 0;
+    quize_no = 0;
 
     usersMapper.insertUser(User);
     ArrayList<Users> users = usersMapper.selectAllByUserName();
@@ -91,10 +100,19 @@ public class QuuizeController {
   @GetMapping("/quize")
   public String quize(Principal prin, ModelMap model) {
 
-    Quiz randomQuiz = quizMapper.selectRandomQuiz();
-    model.addAttribute("quiz", randomQuiz);
-    quize_no = randomQuiz.getNo();
-    quizecnt++;
+    if (statusQuizMapper.selectCount() == 0) {
+      Quiz randomQuiz = quizMapper.selectRandomQuiz();
+      statusQuizMapper.insertStatus(randomQuiz);
+      // model.addAttribute("quiz", randomQuiz);
+      quize_no = randomQuiz.getNo();
+      quizecnt++;
+      statusQuizMapper.updateCnt(quizecnt);
+    }
+
+    cnt = statusQuizMapper.selectCnt();
+
+    StatusQuiz currentQuiz = statusQuizMapper.selectStatus();
+    model.addAttribute("quiz", currentQuiz);
 
     ArrayList<Users> Users = usersMapper.selectAllByUserName();
     model.addAttribute("Users", Users);
@@ -105,6 +123,10 @@ public class QuuizeController {
 
   @GetMapping("/answer/{param}")
   public String answer(@PathVariable String param, Principal prin, ModelMap model) {
+
+    pu.setButton(0);
+    statusQuizMapper.deleteStatus();
+
     int choice = Integer.parseInt(param);
     String userName = prin.getName();
     int id = usersMapper.selectByName(userName);
@@ -134,30 +156,17 @@ public class QuuizeController {
 
   @GetMapping("/result")
   public String result(Principal prin, ModelMap model) {
-    cnt++;
+    //cnt++;
 
     if (cnt == 3) {
-      cnt = 0;
-      quizecnt = 0;
-      quize_no = 0;
+
       ArrayList<Users> Users2 = usersMapper.selectAllByUserName();
       model.addAttribute("Users", Users2);
       return "result.html";
+    } else {
+      pu.setButton(1);
+      return "redirect:quize";
     }
-
-    String loginUser = prin.getName();
-    model.addAttribute("loginUser", loginUser);
-
-    // 修正: QuizMapperのメソッドを呼び出してランダムなクイズを取得
-    Quiz randomQuiz = quizMapper.selectRandomQuiz();
-    model.addAttribute("quiz", randomQuiz);
-    quize_no = randomQuiz.getNo();
-    quizecnt++;
-    ArrayList<Users> users = usersMapper.selectAllByUserName();
-    model.addAttribute("users", users);
-    model.addAttribute("quizecnt", quizecnt);
-
-    return "quize.html";
   }
 
   @GetMapping("/randomQuiz")

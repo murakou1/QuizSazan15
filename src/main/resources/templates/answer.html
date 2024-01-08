@@ -85,6 +85,18 @@
 <head>
   <meta charset="utf-8">
   <title>SpringBoot Samples</title>
+  <script>
+    window.onload = function () {
+
+      var sse = new EventSource('/wait/step1');
+      sse.onmessage = function (event) {
+        var users_list = JSON.parse(event.data);//JSONオブジェクトとしてparse
+        if (users_list == 1) {
+          window.location.href = "/quize";
+        }
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -109,7 +121,7 @@
   </div>
   <div class="sample4">
     <p>
-      <a href="/result">次の問題</a>
+      <a href="/result">次へ</a>
     </p>
   </div>
 
