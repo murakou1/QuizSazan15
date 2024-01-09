@@ -31,6 +31,7 @@ public class QuuizeController {
   public static int cnt = 0;
   public static int quize_no = 0;
   public static int quizecnt = 0;
+  public static int answer_cnt = 0;
 
   @Autowired
   UsersMapper usersMapper;
@@ -133,6 +134,9 @@ public class QuuizeController {
     Status status = new Status();
     status.setId(id);
 
+    answer_cnt++;
+    model.addAttribute("answer_cnt", answer_cnt);
+
     Answer answer = new Answer();
     answer.setChoice(choice);
     answer.setUserName(prin.getName());
@@ -156,7 +160,9 @@ public class QuuizeController {
 
   @GetMapping("/result")
   public String result(Principal prin, ModelMap model) {
-    //cnt++;
+    // cnt++;
+
+    answer_cnt = 0;
 
     if (cnt == 3) {
 
