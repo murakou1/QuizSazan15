@@ -136,6 +136,7 @@ public class QuuizeController {
 
     answer_cnt++;
     model.addAttribute("answer_cnt", answer_cnt);
+    model.addAttribute("cnt", cnt);
 
     Answer answer = new Answer();
     answer.setChoice(choice);
@@ -145,9 +146,9 @@ public class QuuizeController {
 
     int answer_num = quizMapper.selectAnswerByNo(quize_no);
     if (choice == answer_num) {
-      int p = usersMapper.selectPointById(1);
+      int p = usersMapper.selectPointById(id);
       p = p + 3;
-      usersMapper.updateById(p, 1);
+      usersMapper.updateById(p, id);
       statusMapper.insertStatus(status);
     }
 
