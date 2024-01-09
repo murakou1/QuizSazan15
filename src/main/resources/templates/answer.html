@@ -119,50 +119,34 @@
       ～～～～～～～～～～～～～～。
     </div>
   </div>
-  <div class="sample4" th:if="${answer_cnt==2 or cnt==3}">
+  <div class="sample4" th:if="${answer_cnt==4 or cnt==3}">
     <p>
       <a href="/result">次へ</a>
     </p>
   </div>
 
   <div class="user1">
-    <div th:each="user:${Users}">
-      <div th:if="${user.id == 1}">
-        [[${user.userName}]]
-        <br />
-        [[${user.point}]]p
-      </div>
-    </div>
+    [[${Users[0].userName}]]
+    <br />
+    [[${Users[0].point}]]p
 
   </div>
   <div class="user2">
-    <div th:each="user:${Users}">
-      <div th:if="${user.id == 2}">
-        [[${user.userName}]]
-        <br />
-        [[${user.point}]]p
-      </div>
-    </div>
+    [[${Users[1].userName}]]
+    <br />
+    [[${Users[1].point}]]p
   </div>
 
   <div class="user3">
-    <div th:each="user:${Users}">
-      <div th:if="${user.id == 3}">
-        [[${user.userName}]]
-        <br />
-        [[${user.point}]]p
-      </div>
-    </div>
+    [[${Users[2].userName}]]
+    <br />
+    [[${Users[2].point}]]p
   </div>
 
   <div class="user4">
-    <div th:each="user:${Users}">
-      <div th:if="${user.id == 4}">
-        [[${user.userName}]]
-        <br />
-        [[${user.point}]]p
-      </div>
-    </div>
+    [[${Users[3].userName}]]
+    <br />
+    [[${Users[3].point}]]p
   </div>
 
 </body>
