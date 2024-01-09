@@ -21,6 +21,9 @@ public interface UsersMapper {
   @Select("SELECT id from Users where userName=#{name}")
   int selectByName(String name);
 
+  @Select("select * from users order by point desc")
+  ArrayList<Users> selectAllByPoint();
+
   /**
    * #{userName}などはinsertの引数にあるChamberクラスのフィールドを表しています 引数に直接String
    * userNameなどと書いてもいけるはず

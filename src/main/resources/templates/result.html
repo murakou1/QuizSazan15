@@ -43,42 +43,32 @@
   </div>
 
   <div class="sample2">
-    <div th:each="user:${Users}">
-      <div th:if="${user.id == 1}">
         <li>
           1位：
-          [[${user.userName}]]
-          [[${user.point}]]p
+          [[${Users[0].userName}]]
+          [[${Users[0].point}]]p
         </li>
-      </div>
-    </div>
-    <div th:each="user:${Users}">
-      <div th:if="${user.id == 2}">
+
         <li>
           2位：
-          [[${user.userName}]]
-          [[${user.point}]]p
+          [[${Users[1].userName}]]
+          [[${Users[1].point}]]p
         </li>
-      </div>
-    </div>
-    <div th:each="user:${Users}">
-      <div th:if="${user.id == 3}">
+
+
         <li>
           3位：
-          [[${user.userName}]]
-          [[${user.point}]]p
+          [[${Users[3].userName}]]
+          [[${Users[3].point}]]p
         </li>
-      </div>
-    </div>
-    <div th:each="user:${Users}">
-      <div th:if="${user.id == 4}">
+
+
         <li>
           4位：
-          [[${user.userName}]]
-          [[${user.point}]]p
+          [[${Users[4].userName}]]
+          [[${Users[4].point}]]p
         </li>
-      </div>
-    </div>
+
   </div>
 
   <div class="sample4">

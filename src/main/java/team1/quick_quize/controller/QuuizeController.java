@@ -169,7 +169,7 @@ public class QuuizeController {
 
     if (cnt == 3) {
 
-      ArrayList<Users> Users2 = usersMapper.selectAllByUserName();
+      ArrayList<Users> Users2 = usersMapper.selectAllByPoint();
       model.addAttribute("Users", Users2);
       return "result.html";
     } else {
