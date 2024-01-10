@@ -2,12 +2,13 @@
 <html>
 <style>
   .sample1 {
-    /*background: pink;*/
-    width: 700px;
-    height: 50px;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 44px;
     position: relative;
     top: 50px;
-    left: 70px;
+    left: 150px;
     font-size: 34px;
   }
 
@@ -42,43 +43,65 @@
   }
 
   .user1 {
-    background: pink;
+    /*background: blue;*/
     width: 100px;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 20%;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .user2 {
-    background: pink;
+    /*background: blue;*/
     width: 100px;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 40%;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .user3 {
-    background: pink;
+    /*background: blue;*/
     width: 100px;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 60%;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .user4 {
-    background: pink;
+    /*background: blue;*/
     width: 100px;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 80%;
-    font-size: 16px;
+    font-size: 20px;
+  }
+
+  .button {
+    /*background: pink;*/
+    width: 300px;
+    height: 100px;
+    position: relative;
+    top: 150px;
+    left: 600px;
+    font-size: 30px;
+  }
+
+  .body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://2.bp.blogspot.com/-kkfurG90g6k/U-8GF8K-GCI/AAAAAAAAkys/YPzrhU55IxM/s800/alphabet_character_a.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten;
   }
 </style>
 
@@ -99,7 +122,7 @@
   </script>
 </head>
 
-<body>
+<body class="body">
   <div class="sample1" th:if="${quiz.answer == 1}">
     A：1.[[${quiz.choice1}]]
   </div>
@@ -112,41 +135,32 @@
   <div class="sample1" th:if="${quiz.answer == 4}">
     A：4.[[${quiz.choice4}]]
   </div>
-  <div class="sample2">
-    解説
-    <div>
-      ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～。
-      ～～～～～～～～～～～～～～。
-    </div>
-  </div>
-  <div class="sample4" th:if="${answer_cnt==4 or cnt==3}">
-    <p>
-      <a href="/result">次へ</a>
-    </p>
+  <div th:if="${answer_cnt==4 or cnt==3}">
+    <input type="button" class="button" onclick="location.href='/result'" value="NEXT">
   </div>
 
   <div class="user1">
     [[${Users[0].userName}]]
     <br />
-    [[${Users[0].point}]]p
+    　[[${Users[0].point}]]p
 
   </div>
   <div class="user2">
     [[${Users[1].userName}]]
     <br />
-    [[${Users[1].point}]]p
+    　[[${Users[1].point}]]p
   </div>
 
   <div class="user3">
     [[${Users[2].userName}]]
     <br />
-    [[${Users[2].point}]]p
+    　[[${Users[2].point}]]p
   </div>
 
   <div class="user4">
     [[${Users[3].userName}]]
     <br />
-    [[${Users[3].point}]]p
+    　[[${Users[3].point}]]p
   </div>
 
 </body>

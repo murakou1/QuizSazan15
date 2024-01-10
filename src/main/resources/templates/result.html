@@ -5,9 +5,9 @@
     width: 700px;
     height: 50px;
     position: relative;
-    top: 50px;
-    left: 30px;
-    font-size: 34px;
+    top: 100px;
+    left: 45%;
+    font-size: 50px;
   }
 
   .sample2 {
@@ -15,19 +15,33 @@
     width: 700px;
     height: 30px;
     position: relative;
-    top: 100px;
-    left: 50px;
-    font-size: 24px;
+    top: 200px;
+    left: 40%;
+    font-size: 35px;
   }
 
   .sample4 {
-    /*background: pink;*/
-    width: 60px;
-    height: 40px;
-    position: relative;
     top: 300px;
     left: 70%;
-    font-size: 16px;
+
+    width: 10em;
+    height: 3em;
+
+    position: relative;
+    top: 400px;
+    left: 70%;
+  }
+
+  .body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://1.bp.blogspot.com/-fWuR9deOfzg/USNoDsXkCII/AAAAAAAANQg/H6FOgy4C88Q/s1600/message_omedetou.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten;
   }
 </style>
 <html>
@@ -37,43 +51,43 @@
   <title>SpringBoot Samples</title>
 </head>
 
-<body>
+<body class="body">
   <div class="sample1">
     最終結果
   </div>
 
   <div class="sample2">
-        <li>
-          1位：
-          [[${Users[0].userName}]]
-          [[${Users[0].point}]]p
-        </li>
+    <li>
+      1位：
+      [[${Users[0].userName}]]
+      　[[${Users[0].point}]]p
+    </li>
 
-        <li>
-          2位：
-          [[${Users[1].userName}]]
-          [[${Users[1].point}]]p
-        </li>
-
-
-        <li>
-          3位：
-          [[${Users[2].userName}]]
-          [[${Users[2].point}]]p
-        </li>
+    <li>
+      2位：
+      [[${Users[1].userName}]]
+      　[[${Users[1].point}]]p
+    </li>
 
 
-        <li>
-          4位：
-          [[${Users[3].userName}]]
-          [[${Users[3].point}]]p
-        </li>
+    <li>
+      3位：
+      [[${Users[2].userName}]]
+      　[[${Users[2].point}]]p
+    </li>
+
+
+    <li>
+      4位：
+      [[${Users[3].userName}]]
+      　[[${Users[3].point}]]p
+    </li>
 
   </div>
 
-  <div class="sample4">
+  <div>
 
-    <input type="button" onclick="location.href='/wait/step2'" value="退出">
+    <input type="button" class="sample4" onclick="location.href='/wait/step2'" value="退出">
     <!--
     <form action="/exitPlayer" method="post">
       <input type="submit" value="退出">

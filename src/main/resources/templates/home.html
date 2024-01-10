@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <style>
   .logout {
+    width: 10em;
+    height: 3em;
     float: right;
   }
 
   .title {
+    width: 700px;
+    height: 30px;
+    position: relative;
+    top: 20px;
+    left: 20px;
     font-size: 60px;
+  }
+
+  .coment {
+    background: pink;
+    width: 1300px;
+    height: 60px;
+    position: relative;
+    top: 70px;
+    left: 90px;
+    font-size: 30px;
+  }
+
+  .button {
+    /*background: pink;*/
+    width: 300px;
+    height: 50px;
+    position: relative;
+    top: 150px;
+    left: 570px;
+    font-size: 30px;
   }
 </style>
 
@@ -17,17 +44,34 @@
 </head>
 
 <body>
-  <div class="logout">
-    <input type="button" onclick="location.href='/logout'" value="ログアウト">
+  <div>
+    <input type="button" class="logout" onclick="location.href='/logout'" value="ログアウト">
   </div>
 
   <div class="title" th:if="${loginUser}">
     Hi [[${loginUser}]]
   </div>
 
-  <p>
-    <a href="/wait">マッチに参加</a>
-  </p>
+  <div class="coment">
+    ゲーム説明：​
+  </div>
+  <div class="coment">
+    4人で早押しクイズゲームを始めます！​　問題が表示されるのでなるべく早く回答して下さい。
+  </div>
+  <div class="coment">​
+    最後に回答した人が次の問題に移るタイミングを決めることができます！
+  </div>
+  <div class="coment">​
+    得点は以下の通りです。目指せクイズ王！​
+  </div>
+  <div class="coment">
+    　　1位:3点　2位:2点　3位:1点　4位:0点　不正解:0点​
+  </div>
+
+  <div>
+    <input type="button" class="button" onclick="location.href='/wait'" value="マッチに参加">
+  </div>
+
 </body>
 
 </html>
