@@ -116,6 +116,8 @@
         var users_list = JSON.parse(event.data);//JSONオブジェクトとしてparse
         if (users_list == 1) {
           window.location.href = "/quize";
+        }else if(users_list == 2){
+          window.location.href = "/result";
         }
       }
     }
@@ -135,7 +137,7 @@
   <div class="sample1" th:if="${quiz.answer == 4}">
     A：4.[[${quiz.choice4}]]
   </div>
-  <div th:if="${answer_cnt==4 or cnt==3}">
+  <div th:if="${answer_cnt==4}">
     <input type="button" class="button" onclick="location.href='/result'" value="NEXT">
   </div>
 

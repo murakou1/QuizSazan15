@@ -69,6 +69,7 @@ public class QuuizeController {
     cnt = 0;
     quizecnt = 0;
     quize_no = 0;
+    pu.setButton(0);
 
     usersMapper.insertUser(User);
     ArrayList<Users> users = usersMapper.selectAllByUserName();
@@ -168,7 +169,7 @@ public class QuuizeController {
     point = 3;
 
     if (cnt == 3) {
-
+      pu.setButton(2);
       ArrayList<Users> Users2 = usersMapper.selectAllByPoint();
       model.addAttribute("Users", Users2);
       return "result.html";
