@@ -23,7 +23,20 @@
   .start {
     display: block;
     width: 80px;
+    top: 150px;
     font-size: 34px;
+  }
+
+  .body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://4.bp.blogspot.com/-O6YfkEjsS0s/U82z8QCZ67I/AAAAAAAAjPA/OB9N-uE8bwM/s800/quiz_man_hatena.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten;
   }
 </style>
 
@@ -34,13 +47,15 @@
   <title>QuizSazan15</title>
 </head>
 
-<body>
+<body class="body">
 
   <div class="parent_t">
     <div class="title">QuizSazan15</div>
   </div>
   <div class="parent_s">
-    <div class="start"><a href="/home">start</a></div>
+    <div>
+      <input type="button" class="start" onclick="location.href='/home'" value="start">
+    </div>
   </div>
 
 </body>

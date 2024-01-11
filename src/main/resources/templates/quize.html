@@ -3,12 +3,12 @@
 
 <style>
   .sample1 {
-    background: pink;
-    width: 1200px;
-    height: 150px;
+    /*background: yellow;*/
+    width: 1300px;
+    height: 300px;
     position: relative;
     top: 50px;
-    left: 70px;
+    left: 150px;
     font-size: 34px;
   }
 
@@ -23,83 +23,95 @@
   }
 
   .choice1 {
-    background: blue;
+    /*background: blue;*/
     width: 200px;
     height: 100px;
     position: absolute;
-    top: 40%;
-    left: 10%;
-    font-size: 30px;
+    top: 50%;
+    left: 15%;
+    font-size: 22px;
   }
 
   .choice2 {
-    background: blue;
+    /*background: blue;*/
     width: 200px;
     height: 100px;
     position: absolute;
-    top: 40%;
-    left: 30%;
-    font-size: 30px;
+    top: 50%;
+    left: 35%;
+    font-size: 22px;
   }
 
   .choice3 {
-    background: blue;
+    /*background: blue;*/
     width: 200px;
     height: 100px;
     position: absolute;
-    top: 40%;
-    left: 50%;
-    font-size: 30px;
+    top: 50%;
+    left: 55%;
+    font-size: 22px;
   }
 
   .choice4 {
-    background: blue;
+    /*background: blue;*/
     width: 200px;
     height: 100px;
     position: absolute;
-    top: 40%;
-    left: 70%;
-    font-size: 30px;
+    top: 50%;
+    left: 75%;
+    font-size: 22px;
   }
 
   .user1 {
-    background: blue;
+    /*background: blue;*/
     width: 100px;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 20%;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .user2 {
-    background: blue;
+    /*background: blue;*/
     width: 100px;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 40%;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .user3 {
-    background: blue;
+    /*background: blue;*/
     width: 100px;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 60%;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .user4 {
-    background: blue;
+    /*background: blue;*/
     width: 100px;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 80%;
-    font-size: 16px;
+    font-size: 20px;
+  }
+
+  .body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://4.bp.blogspot.com/-4OJ-2pEqpNo/U-8GLwIBLHI/AAAAAAAAk0Y/b2canIaDwW0/s800/alphabet_character_q.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten;
   }
 </style>
 
@@ -108,50 +120,52 @@
   <title>SpringBoot Samples</title>
 </head>
 
-<body>
+<body class="body">
   <div class="sample1">
-    [[${quizecnt}]]：[[${quiz.content}]]
+    Q[[${quizecnt}]]：
+
+    [[${quiz.content}]]
   </div>
 
-  <div class="choice1">
-    <button onclick="location.href='/answer/1'">1：[[${quiz.choice1}]]</button>
+  <div>
+    <button class="choice1" onclick="location.href='/answer/1'">1：[[${quiz.choice1}]]</button>
   </div>
 
-  <div class="choice2">
-    <button onclick="location.href='/answer/2'">2：[[${quiz.choice2}]]</button>
+  <div>
+    <button class="choice2" onclick="location.href='/answer/2'">2：[[${quiz.choice2}]]</button>
   </div>
 
-  <div class="choice3">
-    <button onclick="location.href='/answer/3'">3：[[${quiz.choice3}]]</button>
+  <div>
+    <button class="choice3" onclick="location.href='/answer/3'">3：[[${quiz.choice3}]]</button>
   </div>
 
-  <div class="choice4">
-    <button onclick="location.href='/answer/4'">4：[[${quiz.choice4}]]</button>
+  <div>
+    <button class="choice4" onclick="location.href='/answer/4'">4：[[${quiz.choice4}]]</button>
   </div>
 
 
   <div class="user1">
     [[${Users[0].userName}]]
     <br />
-    [[${Users[0].point}]]p
+    　[[${Users[0].point}]]p
 
   </div>
   <div class="user2">
     [[${Users[1].userName}]]
     <br />
-    [[${Users[1].point}]]p
+    　[[${Users[1].point}]]p
   </div>
 
   <div class="user3">
     [[${Users[2].userName}]]
     <br />
-    [[${Users[2].point}]]p
+    　[[${Users[2].point}]]p
   </div>
 
   <div class="user4">
     [[${Users[3].userName}]]
     <br />
-    [[${Users[3].point}]]p
+    　[[${Users[3].point}]]p
   </div>
 
 </body>
