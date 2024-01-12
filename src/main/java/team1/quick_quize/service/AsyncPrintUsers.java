@@ -34,6 +34,9 @@ public class AsyncPrintUsers {
           emitter.send(1);
           //pushButton = 0;
         }
+        if (pushButton == 2) {
+          emitter.send(2);
+        }
         // DBが更新されていなければ0.5s休み
         if (false == dbUpdated) {
           TimeUnit.MILLISECONDS.sleep(500);
