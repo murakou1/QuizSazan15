@@ -42,7 +42,6 @@ public class AsyncPrintUsers {
           TimeUnit.MILLISECONDS.sleep(500);
           continue;
         }
-        // DBが更新されていれば更新後のフルーツリストを取得してsendし，1s休み，dbUpdatedをfalseにする
         ArrayList<Users> Users = usersMapper.selectAllByUserName();
         emitter.send(Users);
         TimeUnit.MILLISECONDS.sleep(1000);

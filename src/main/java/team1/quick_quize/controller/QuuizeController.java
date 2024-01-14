@@ -179,33 +179,4 @@ public class QuuizeController {
     }
   }
 
-  @GetMapping("/randomQuiz")
-  public String randomQuiz(Principal prin, ModelMap model) {
-    String loginUser = prin.getName();
-    model.addAttribute("loginUser", loginUser);
-
-    // 修正: QuizMapperのメソッドを呼び出してランダムなクイズを取得
-    Quiz randomQuiz = quizMapper.selectRandomQuiz();
-    model.addAttribute("quiz", randomQuiz);
-    quize_no = randomQuiz.getNo();
-
-    ArrayList<Users> users = usersMapper.selectAllByUserName();
-    model.addAttribute("users", users);
-
-    return "quize.html";
-  }
-
-  @PostMapping("/exitPlayer")
-  public String exitPlayer(Principal principal, Model model) {
-    String loginUser = principal.getName();
-
-    // プレイヤーの退出処理を行う（例: データベースから削除など）
-    usersMapper.deleteByName(loginUser);
-
-    ArrayList<Users> users = usersMapper.selectAllByUserName();
-    model.addAttribute("users", users);
-    model.addAttribute("loginUser", loginUser);
-
-    return "home.html";
-  }
 }
